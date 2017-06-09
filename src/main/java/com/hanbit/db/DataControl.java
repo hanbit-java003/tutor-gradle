@@ -21,6 +21,14 @@ public class DataControl {
 			conn = DriverManager.getConnection(url, user, password);
 			System.out.println("접속 성공");
 			
+			String insertSql = "INSERT INTO tbl_students ";
+			insertSql += "(no, name, age, addr) ";
+			insertSql += "VALUES ";
+			insertSql += "(11, '강한빛', 26, '종로')";
+			
+			Statement insert = conn.createStatement();
+			boolean result = insert.execute(insertSql);
+			
 			String sql = "SELECT no, name, age, addr FROM tbl_students";
 			
 			Statement stmt = conn.createStatement();
